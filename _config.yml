@@ -1,0 +1,91 @@
+# Site settings
+title: 壹芝的博客
+SEOTitle: 壹芝的博客 | GlxyDbyz Blog
+header-img: img/post-bg-digital-native.jpg
+email: glxydbyz@gmail.com
+description: "Love coding, Love life."
+keyword: "壹芝, 壹芝Blog, 壹芝的博客, glxydbyz, java, web develop, spring"
+url: "http://glxydbyz.github.io"          # your host, for absolute URL
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+github_repo: "https://github.com/glxydbyz/glxydbyz.github.io.git" # you code repository
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "The more things you do, the more you can do."
+sidebar-avatar: /img/about-YZ-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+# SNS settings
+RSS: false
+github_username:    glxydbyz
+jianshu_username:   4874a7a0ea63
+zhihu_username:     yi-zhi-25-26-17
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: b4199b84e6bacf695627                            #生成的clientID
+  clientSecret: d48f25937b59e2d25dbbe3d1c11f9415e88d8ccd    #生成的clientSecret
+  repo: glxydbyz.github.io    #仓库名称
+  owner: glxydbyz    #github用户名
+  admin: glxydbyz
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+
+
+# 统计
+
+# Analytics settings
+# Baidu Analytics
+ba_track_id: ed12b234e3af1c5ae3d20c5e43d21411
+
+
+# Featured Tags
+featured-tags: true                     # 是否使用首页标签
+featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+# Friends
+friends: [
+    {
+        title: "壹芝",
+        href: "http://blog.glxydbyz.top"
+    },{
+        title: "简书",
+        href: "http://www.jianshu.com/u/4874a7a0ea63"
+    },{
+        title: "Java",
+        href: "https://java.com"
+    },{
+        title: "ifeve",
+        href: "http://ifeve.com"
+    }
+]
