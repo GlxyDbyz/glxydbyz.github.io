@@ -32,7 +32,7 @@ import java.time.Duration;
  * RateLimiterTest
  *
  * @author fangzheng
- * @version v0.1 2019-08-24 14:02
+ * @version v0.1 2017-08-11 14:02
  */
 @Slf4j
 @SuppressWarnings("UnstableApiUsage")
