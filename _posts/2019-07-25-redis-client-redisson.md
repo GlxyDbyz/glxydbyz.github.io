@@ -7,7 +7,10 @@ author:     壹芝
 header-img: img/post-bg-coffee.jpg
 catalog: true
 tags:
-    - Git
+    - redis
+    - Redisson
+    - Java
+    - In-Memory Data Grid
 ---
 
 ## Java驻内存数据网格 Redisson 的使用
