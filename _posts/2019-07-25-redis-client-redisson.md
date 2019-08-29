@@ -155,6 +155,9 @@ tags:
     log.info("dist {} km", geo.dist("hangzhou", "beijing", GeoUnit.KILOMETERS));
 
 ```
+
+##### 7. 分布式分数排序集合
+
 ```
     /*************************** RScoredSortedSet ************************/
     // RScoredSortedSet
@@ -164,7 +167,7 @@ tags:
     scoredSortedSet.getScore("Jerry");
 ```
 
-##### 6. 分布式布隆过滤器
+##### 8. 分布式布隆过滤器
 
 ```
     /***************************** RBloomFilter **************************/
