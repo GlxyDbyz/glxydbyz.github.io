@@ -61,7 +61,7 @@ public class CacheTest {
             // FIFO 0.5秒过期
             .expireAfterWrite(500, TimeUnit.MILLISECONDS)
             // LRU 0.5秒过期
-            .expireAfterAccess(500, TimeUnit.MILLISECONDS)
+            // .expireAfterAccess(500, TimeUnit.MILLISECONDS)
             .build();
 
     /**
@@ -80,7 +80,7 @@ public class CacheTest {
             // FIFO 0.5秒过期
             .expireAfterWrite(500, TimeUnit.MILLISECONDS)
             // LRU 0.5秒过期
-            .expireAfterAccess(500, TimeUnit.MILLISECONDS)
+            // .expireAfterAccess(500, TimeUnit.MILLISECONDS)
             .build(new CacheLoader<String, String>() {
                 @Override
                 public String load(String key) {
@@ -104,7 +104,7 @@ public class CacheTest {
             // FIFO 0.5秒过期
             .expireAfterWrite(500, TimeUnit.MILLISECONDS)
             // LRU 0.5秒过期
-            .expireAfterAccess(500, TimeUnit.MILLISECONDS)
+            // .expireAfterAccess(500, TimeUnit.MILLISECONDS)
             .build(CacheLoader.from(UUID.randomUUID()::toString));
 
     public static void main(String[] args) throws Exception {
