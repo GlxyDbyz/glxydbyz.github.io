@@ -58,8 +58,10 @@ public class CacheTest {
             .maximumSize(1024)
             // 并发数
             .concurrencyLevel(8)
-            // 0.5秒过期
+            // FIFO 0.5秒过期
             .expireAfterWrite(500, TimeUnit.MILLISECONDS)
+            // LRU 0.5秒过期
+            .expireAfterAccess(500, TimeUnit.MILLISECONDS)
             .build();
 
     /**
@@ -75,8 +77,10 @@ public class CacheTest {
             .maximumSize(1024)
             // 并发数
             .concurrencyLevel(8)
-            // 0.5秒过期
+            // FIFO 0.5秒过期
             .expireAfterWrite(500, TimeUnit.MILLISECONDS)
+            // LRU 0.5秒过期
+            .expireAfterAccess(500, TimeUnit.MILLISECONDS)
             .build(new CacheLoader<String, String>() {
                 @Override
                 public String load(String key) {
@@ -97,8 +101,10 @@ public class CacheTest {
             .maximumSize(1024)
             // 并发数
             .concurrencyLevel(8)
-            // 0.5秒过期
+            // FIFO 0.5秒过期
             .expireAfterWrite(500, TimeUnit.MILLISECONDS)
+            // LRU 0.5秒过期
+            .expireAfterAccess(500, TimeUnit.MILLISECONDS)
             .build(CacheLoader.from(UUID.randomUUID()::toString));
 
     public static void main(String[] args) throws Exception {
