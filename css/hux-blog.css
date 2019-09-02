@@ -300,10 +300,10 @@ pre code {
   width: 48%;
 }
 .post-container .pager li.next {
-  float: right;
+  float: left;
 }
 .post-container .pager li.previous {
-  float: left;
+  float: right;
 }
 .post-container .pager li > a {
   width: 100%;
