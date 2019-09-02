@@ -7,7 +7,7 @@ author:     壹芝
 header-img: img/post-bg-coffee.jpg
 catalog: true
 tags:
-    - redis
+    - Redis
     - Redisson
     - Java
     - In-Memory Data Grid
