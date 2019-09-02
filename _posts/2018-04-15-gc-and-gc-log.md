@@ -2,7 +2,7 @@
 layout:     post
 title:      常见垃圾回收方法和对应GC日志分析
 subtitle:   GC日志分析
-date:       2018-02-15
+date:       2018-04-15
 author:     壹芝
 header-img: img/post-bg-coffee.jpg
 catalog: true
