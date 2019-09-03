@@ -2,7 +2,7 @@
 layout:     post
 title:      BUG实录 - Redis SETNX
 subtitle:   一个 Redis SETNX 使用不当引起的 BUG
-date:       2018-08-21
+date:       2018-03-21
 author:     壹芝
 header-img: img/post-bg-debug.png
 catalog: true
@@ -172,6 +172,6 @@ XX ： 只在键已经存在时， 才对键进行设置操作。
     }
 ```
 
-#### 5. 建议使用 [Redisson](http://blog.glxydbyz.top/2019/07/25/redis-client-redisson/) 替换原有的Redis Client 实现分布式锁
+#### 5. 建议使用 [Redisson](http://blog.glxydbyz.top/2018/01/25/redis-client-redisson/) 替换原有的Redis Client 实现分布式锁
 
 
