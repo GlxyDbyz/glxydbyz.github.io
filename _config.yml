@@ -25,7 +25,7 @@ zhihu_username:     yi-zhi-25-26-17
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 permalink: pretty
-paginate: 10
+paginate: 15
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
@@ -65,7 +65,7 @@ ba_track_id: ed12b234e3af1c5ae3d20c5e43d21411
 
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
+featured-condition-size: 2              # 相同标签数量大于这个数，才会出现在首页
 
 
 # Progressive Web Apps
