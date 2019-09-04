@@ -94,9 +94,9 @@ public static class Clot {
 }
 ```
 
-> fasjson 在发序列化对象的时候先遍历Class里面的全部字段,遍历方法是取出setXxx方法,去掉set变成Xxx,然后对应到字段xxx
+> 老版本 fasjson 在发序列化对象的时候先遍历Class里面的全部字段,遍历方法是取出setXxx方法,去掉set变成Xxx,然后对应到字段xxx
 
-有BUG的代码如下
+有BUG的代码如下 computeSetters
 ```
 com.alibaba.fastjson.util.DeserializeBeanInfo#computeSetters
 
@@ -169,6 +169,87 @@ if (!(method.getReturnType().equals(Void.TYPE) || method.getReturnType().equals(
     <artifactId>fastjson</artifactId>
     <version>1.2.48</version>
 </dependency>
+```
+
+新版本 fastjson 字段处理代码如下实现如下截取computeFields部分代码
+
+```
+com.alibaba.fastjson.util.JavaBeanInfo#computeFields
+
+......
+
+if (fieldBased) {
+    for (Class<?> currentClass = clazz; currentClass != null; currentClass = currentClass.getSuperclass()) {
+        Field[] fields = currentClass.getDeclaredFields();
+
+        computeFields(clazz, type, propertyNamingStrategy, fieldList, fields);
+    }
+    return new JavaBeanInfo(clazz, builderClass, defaultConstructor, null, factoryMethod, buildMethod, jsonType, fieldList);
+}
+......
+
+
+......   
+private static void computeFields(Class<?> clazz, Type type, PropertyNamingStrategy propertyNamingStrategy, List<FieldInfo> fieldList, Field[] fields) {
+    for (Field field : fields) { // public static fields
+        int modifiers = field.getModifiers();
+        if ((modifiers & Modifier.STATIC) != 0) {
+            continue;
+        }
+
+        if ((modifiers & Modifier.FINAL) != 0) {
+            Class<?> fieldType = field.getType();
+            boolean supportReadOnly = Map.class.isAssignableFrom(fieldType)
+                    || Collection.class.isAssignableFrom(fieldType)
+                    || AtomicLong.class.equals(fieldType) //
+                    || AtomicInteger.class.equals(fieldType) //
+                    || AtomicBoolean.class.equals(fieldType);
+            if (!supportReadOnly) {
+                continue;
+            }
+        }
+
+        boolean contains = false;
+        for (FieldInfo item : fieldList) {
+            if (item.name.equals(field.getName())) {
+                contains = true;
+                break; // 已经是 contains = true，无需继续遍历
+            }
+        }
+
+        if (contains) {
+            continue;
+        }
+
+        int ordinal = 0, serialzeFeatures = 0, parserFeatures = 0;
+        String propertyName = field.getName();
+
+        JSONField fieldAnnotation = field.getAnnotation(JSONField.class);
+
+        if (fieldAnnotation != null) {
+            if (!fieldAnnotation.deserialize()) {
+                continue;
+            }
+
+            ordinal = fieldAnnotation.ordinal();
+            serialzeFeatures = SerializerFeature.of(fieldAnnotation.serialzeFeatures());
+            parserFeatures = Feature.of(fieldAnnotation.parseFeatures());
+
+            if (fieldAnnotation.name().length() != 0) {
+                propertyName = fieldAnnotation.name();
+            }
+        }
+
+        if (propertyNamingStrategy != null) {
+            propertyName = propertyNamingStrategy.translate(propertyName);
+        }
+
+        add(fieldList, new FieldInfo(propertyName, null, field, clazz, type, ordinal, serialzeFeatures, parserFeatures, null,
+                fieldAnnotation, null));
+    }
+}
+......
+
 ```
 
 
