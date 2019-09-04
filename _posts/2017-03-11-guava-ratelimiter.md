@@ -2,7 +2,7 @@
 layout:     post
 title:      Guava RateLimiter
 subtitle:   RateLimiter 简单例子
-date:       2017-08-11
+date:       2017-03-11
 author:     壹芝
 header-img: img/post-bg-coffee.jpg
 catalog: true
@@ -32,7 +32,6 @@ import java.time.Duration;
  * RateLimiterTest
  *
  * @author fangzheng
- * @version v0.1 2017-08-11 14:02
  */
 @Slf4j
 @SuppressWarnings("UnstableApiUsage")

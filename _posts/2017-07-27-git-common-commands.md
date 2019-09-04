@@ -2,7 +2,7 @@
 layout:     post
 title:      Git常用命令速记
 subtitle:   Git常用命令简单例子
-date:       2019-08-27
+date:       2017-07-27
 author:     壹芝
 header-img: img/post-bg-coffee.jpg
 catalog: true
